@@ -1,0 +1,123 @@
+body {
+    padding: 0;
+    margin: 0;
+    background: var(--bg-color);
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    height: 100%;
+}
+
+:root {
+    --font-color: #233142;
+    --font-color2: #f95959;
+    --font-color3: #455d7a;
+    --bg-color: #e3e3e3;
+}
+
+.dark {
+    --font-color: #e3e3e3;
+    --bg-color: #233142;
+    --font-color3: #e4f1fe;
+}
+
+* {
+    border: border-box;
+}
+
+
+/* classes and config */
+
+li {
+    list-style-type: none;
+}
+
+ul {}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+a,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+a {}
+
+.hover {
+    transition: color 0.15s ease-in-out;
+}
+
+.hover:hover {
+    transition: color 0.15s ease-in-out;
+    color: var(--font-color2);
+    cursor: pointer;
+}
+
+
+/* header */
+
+header {
+    width: 100%;
+    height: 5vh;
+    border-bottom: 3px solid var(--font-color);
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerInnerWrapper {
+    display: flex;
+    width: 97.5%;
+    height: inherit;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.headerInnerWrapper nav ul {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* main */
+
+main {
+    height: 95vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.mainUpperWrapper {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.mainCenterWrapper {
+    width: 100%;
+    height: 80%;
+}
+
+.title {
+    color: var(--font-color3);
+    font-size: 50px;
+}
+
+
+/* footer */
+
+footer {}

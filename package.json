@@ -1,0 +1,34 @@
+{
+    "name": "multifunction-tool-for-creator",
+    "productName": "multifunction-tool-for-creator",
+    "version": "1.0.0",
+    "description": "A tool bundle for people who create and innovate.",
+    "main": "src/index.js",
+    "scripts": {
+        "start": "electron-forge start",
+        "package": "electron-forge package",
+        "make": "electron-forge make",
+        "publish": "electron-forge publish",
+        "lint": "echo \"No linting configured\""
+    },
+    "devDependencies": {
+        "@electron-forge/cli": "^7.3.1",
+        "@electron-forge/maker-deb": "^7.3.1",
+        "@electron-forge/maker-rpm": "^7.3.1",
+        "@electron-forge/maker-squirrel": "^7.3.1",
+        "@electron-forge/maker-zip": "^7.3.1",
+        "@electron-forge/plugin-auto-unpack-natives": "^7.3.1",
+        "@electron-forge/plugin-fuses": "^7.2.0",
+        "@electron/fuses": "^1.7.0",
+        "electron": "^29.3.0"
+    },
+    "keywords": [],
+    "author": {
+        "name": "Josef Stips",
+        "email": "stipsjosef@gmail.com"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "electron-squirrel-startup": "^1.0.0"
+    }
+}
