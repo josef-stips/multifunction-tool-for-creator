@@ -87,10 +87,66 @@ const toolIcons = {
     29: "fas fa-percent" // Compound Interest Calculator
 };
 
+const toolFunctions = {
+    tool0,
+    tool1,
+    tool2,
+    tool3,
+    tool4,
+    tool5,
+    tool6,
+    tool7,
+    tool8,
+    tool9,
+    tool10,
+    tool11,
+    tool12,
+    tool13,
+    tool14,
+    tool15,
+    tool16,
+    tool17,
+    tool18,
+    tool19,
+    tool20,
+    tool21,
+    tool22,
+    tool23,
+    tool24,
+    tool25,
+    tool26,
+    tool27,
+    tool28,
+    tool29
+};
+
+// tool class
+class tool {
+    constructor(category, tool, toolIndex) {
+        this.category = category;
+        this.tool = tool;
+        this.index = toolIndex;
+    };
+
+    show = (index) => {
+        tool_title.textContent = newApp.current_tool.tool;
+
+        tool_content.forEach(content => content.style.display = "none");
+
+        const tool = Array.from(tool_content).find(node => node.getAttribute('tool_id') == index);
+
+        tool.style.display = "flex";
+    };
+};
+
+let toolClass = new tool();
+
 // generate html
 class toolManager {
-    constructor(tools) {
+    constructor(tools, toolFunctions, toolClass) {
         this.tools = tools;
+        this.toolFunctions = toolFunctions;
+        this.toolClass = toolClass;
     };
 
     tool_length = (tools) => {
@@ -121,26 +177,30 @@ class toolManager {
             let toolsOfSubjectContainer = document.createElement("div");
             toolsOfSubjectContainer.classList.add("SubjectToolsContainer");
 
-            for (const tool of toolsOfSubject) {
-                let indexOfTool = this.index_of_tool(tools, tool);
-
-                let card = document.createElement("div");
-                card.classList.add("card");
-                card.textContent = tool;
-
-                this.event_listener(card, indexOfTool, tool, key);
-
-                let icon = document.createElement("i");
-                icon.className = toolIcons[indexOfTool];
-
-                card.appendChild(icon);
-
-                toolsOfSubjectContainer.appendChild(card);
-            };
+            this.generate_tool_in_subject(toolsOfSubject, key, toolsOfSubjectContainer);
 
             section.appendChild(title);
             section.appendChild(toolsOfSubjectContainer);
             cardsWrapper.appendChild(section);
+        };
+    };
+
+    generate_tool_in_subject = (toolsOfSubject, key, toolsOfSubjectContainer) => {
+        for (const tool of toolsOfSubject) {
+            let indexOfTool = this.index_of_tool(tools, tool);
+
+            let card = document.createElement("div");
+            card.classList.add("card");
+            card.textContent = tool;
+
+            this.event_listener(card, indexOfTool, tool, key);
+
+            let icon = document.createElement("i");
+            icon.className = toolIcons[indexOfTool];
+
+            card.appendChild(icon);
+
+            toolsOfSubjectContainer.appendChild(card);
         };
     };
 
@@ -154,6 +214,8 @@ class toolManager {
             };
 
             tool_popUp.setAttribute("active_tool", index);
+
+            this.toolClass.show(index);
         });
     };
 

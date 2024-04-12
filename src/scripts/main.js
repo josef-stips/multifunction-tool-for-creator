@@ -8,6 +8,8 @@ let tool_popUp_closeBtn = document.querySelector(".tool_popUp_closeBtn");
 let tool_question_popUp = document.querySelector(".tool_question_popUp");
 let tool_question_popUp_closeBtn = document.querySelector(".tool_question_popUp_closeBtn");
 let tool_question_popUp_main = document.querySelector(".tool_question_popUp_main");
+let tool_title = document.querySelector(".tool_title");
+let tool_content = document.querySelectorAll(".tool_content");
 
 class App {
     constructor(toolmanager) {
@@ -60,8 +62,6 @@ class App {
     };
 
     open_popUp = (popUp) => {
-        console.log(popUp.style, popUp.style.zIndex, getComputedStyle(popUp).zIndex);
-
         popUp.style.display = "flex";
         darkLayer.style.zIndex = getComputedStyle(popUp).zIndex - 1;
         popUp.style.animation = "popUp_pop 0.15s ease-in-out";
@@ -80,7 +80,7 @@ class App {
     };
 };
 
-let ToolManager = new toolManager(tools);
+let ToolManager = new toolManager(tools, toolFunctions, toolClass);
 let newApp = new App(ToolManager);
 
 newApp.init();

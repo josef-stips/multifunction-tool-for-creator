@@ -257,6 +257,19 @@ footer {}
 }
 
 
+/* tool contents */
+
+.tool_content {
+    display: none;
+}
+
+.tool_content[tool_id="0"] {
+    width: 100%;
+    height: 100%;
+    background-color: var(--font-color2);
+}
+
+
 /* question tool pop up */
 
 .tool_question_popUp {
