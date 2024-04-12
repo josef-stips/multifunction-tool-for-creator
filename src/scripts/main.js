@@ -1,5 +1,4 @@
 // elements
-let bars = document.querySelector(".bars");
 let themeBtn = document.querySelector(".themeBtn");
 let cardsWrapper = document.querySelector(".cardsWrapper");
 let tool_popUp = document.querySelector(".tool_popUp");
@@ -21,18 +20,32 @@ class App {
     };
 
     init = () => {
+        this.theme();
         this.EventListener();
         this.toolmanager.generate(this.toolmanager.tools);
+    };
+
+    theme = () => {
+        let theme = localStorage.getItem("theme");
+
+        if (!theme) {
+            localStorage.setItem("theme", "1");
+        };
     };
 
     EventListener = () => {
 
         themeBtn.addEventListener("click", () => {
+            let is_dark_theme = document.body.classList.contains("dark");
 
-        });
+            if (is_dark_theme) {
+                localStorage.setItem("theme", "0");
+                document.body.classList.remove("dark");
 
-        bars.addEventListener("click", () => {
-
+            } else {
+                localStorage.setItem("theme", "1");
+                document.body.classList.add("dark");
+            };
         });
 
         tool_popUp_closeBtn.addEventListener("click", () => {

@@ -1,5 +1,4 @@
-body,
-html {
+body {
     padding: 0;
     margin: 0;
     background: var(--bg-color);
@@ -74,15 +73,17 @@ header {
     width: 100%;
     height: 5vh;
     border-bottom: 3px solid var(--font-color);
-    font-size: 30px;
+    font-size: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: var(--font-color);
+    user-select: none;
 }
 
 .headerInnerWrapper {
     display: flex;
-    width: 97.5%;
+    width: 98.5%;
     height: inherit;
     align-items: center;
     justify-content: space-between;
@@ -95,6 +96,11 @@ header {
     justify-content: center;
 }
 
+.logo {
+    font-size: 40px;
+    font-weight: bold;
+}
+
 
 /* main */
 
@@ -105,6 +111,7 @@ main {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    user-select: none;
 }
 
 .mainUpperWrapper {
@@ -166,7 +173,8 @@ main {
 .card {
     width: 250px;
     height: 250px;
-    border: 4px solid var(--font-color);
+    border: 4px solid var(--font-color2);
+    color: var(--font-color);
     border-radius: 20px;
     text-align: center;
     display: flex;
@@ -176,11 +184,12 @@ main {
     transition: all 0.15s ease-in-out;
     font-weight: bold;
     user-select: none;
+    box-shadow: inset 0 0 5px var(--font-color2);
 }
 
 .card:hover {
     transition: all 0.15s ease-in-out;
-    border-color: var(--font-color2);
+    border-color: var(--font-color3);
     transform: scale(1.05);
     cursor: pointer;
 }
