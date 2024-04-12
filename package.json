@@ -1,15 +1,39 @@
 {
     "name": "multifunction-tool-for-creator",
-    "productName": "multifunction-tool-for-creator",
+    "productName": "Sigma Tool Bundle",
     "version": "1.0.0",
     "description": "A tool bundle for people who create and innovate.",
     "main": "src/index.js",
+    "build": {
+        "appId": "com.josefstips.SigmaToolBundle",
+        "win": {
+            "target": [
+                "nsis"
+            ],
+            "icon": "./icon.ico"
+        },
+        "nsis": {
+            "allowToChangeInstallationDirectory": true,
+            "oneClick": false,
+            "installerIcon": "./icon.ico",
+            "uninstallerIcon": "./icon.ico",
+            "installerHeaderIcon": "./icon.ico",
+            "uninstallDisplayName": "Sigma Tool Bundle",
+            "runAfterFinish": true,
+            "deleteAppDataOnUninstall": false,
+            "multiLanguageInstaller": true,
+            "createDesktopShortcut": true,
+            "createStartMenuShortcut": true,
+            "installerSidebar": "./nsisSideBar.bmp",
+            "uninstallerSidebar": "./nsisSideBar.bmp"
+        }
+    },
     "scripts": {
         "start": "electron-forge start",
         "package": "electron-forge package",
         "make": "electron-forge make",
         "publish": "electron-forge publish",
-        "lint": "echo \"No linting configured\""
+        "dist": "electron-builder build"
     },
     "devDependencies": {
         "@electron-forge/cli": "^7.3.1",
@@ -20,7 +44,8 @@
         "@electron-forge/plugin-auto-unpack-natives": "^7.3.1",
         "@electron-forge/plugin-fuses": "^7.2.0",
         "@electron/fuses": "^1.7.0",
-        "electron": "^29.3.0"
+        "electron": "^29.3.0",
+        "electron-builder": "^24.13.3"
     },
     "keywords": [],
     "author": {
