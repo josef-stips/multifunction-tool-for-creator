@@ -54,6 +54,14 @@ class toolManager {
         this.tools = tools;
     };
 
+    tool_length = (tools) => {
+        return Object.values(tools).flat().length;
+    };
+
+    index_of_tool = (tools, tool) => {
+        return Object.values(tools).flat().indexOf(tool);
+    };
+
     generate = (tools) => {
         console.log(tools);
 
@@ -75,10 +83,13 @@ class toolManager {
             toolsOfSubjectContainer.classList.add("SubjectToolsContainer");
 
             for (const tool of toolsOfSubject) {
+                let indexOfTool = this.index_of_tool(tools, tool);
+
                 let card = document.createElement("div");
                 card.classList.add("card");
-
                 card.textContent = tool;
+
+                this.event_listener(card, indexOfTool, tool, key);
 
                 toolsOfSubjectContainer.appendChild(card);
             };
@@ -87,5 +98,27 @@ class toolManager {
             section.appendChild(toolsOfSubjectContainer);
             cardsWrapper.appendChild(section);
         };
+    };
+
+    event_listener = (card, index, tool_name, tool_category) => {
+        card.addEventListener("click", () => {
+            newApp.open_popUp(tool_popUp);
+
+            newApp.current_tool = {
+                category: tool_category,
+                tool: tool_name
+            };
+
+            tool_popUp.setAttribute("active_tool", index);
+        });
+    };
+
+    open_question_popUp = (questionBtn, questionPopUp_main) => {
+
+        questionBtn.addEventListener("click", () => {
+
+            newApp.open_popUp(tool_question_popUp);
+            questionPopUp_main.textContent = newApp.current_tool["category"] + ": " + newApp.current_tool["tool"];
+        });
     };
 };
