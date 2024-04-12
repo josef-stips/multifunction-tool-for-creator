@@ -63,9 +63,9 @@ class App {
         console.log(popUp.style, popUp.style.zIndex, getComputedStyle(popUp).zIndex);
 
         popUp.style.display = "flex";
-        darkLayer.style.display = "block";
         darkLayer.style.zIndex = getComputedStyle(popUp).zIndex - 1;
-        popUp.style.animation = "popUp_pop 0.20s forward";
+        popUp.style.animation = "popUp_pop 0.15s ease-in-out";
+        darkLayer.style.display = "block";
 
         // no app scroll
         document.body.style.overflowY = "hidden";
